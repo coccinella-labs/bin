@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "mix deps.get",
+      "type": "shell",
+      "command": "mix deps.get",
+      "group": "build"
+    },
+    {
+      "label": "mix test",
+      "type": "shell",
+      "command": "mix test",
+      "group": "test"
+    },
+    {
+      "label": "run user_ingest sample",
+      "type": "shell",
+      "command": "mix pipeline.run user_ingest data/users.json --no-persist-logs"
+    },
+    {
+      "label": "run order_ingest sample",
+      "type": "shell",
+      "command": "mix pipeline.run order_ingest data/orders.csv --no-persist-logs"
+    }
+  ]
+}

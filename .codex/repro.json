@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "project": {
+    "name": "pipeline_bin",
+    "type": "elixir_app",
+    "cwd": "/Users/niladri/Desktop/bin"
+  },
+  "runtime": {
+    "elixir": "1.19.5",
+    "erlang_otp": "28.4",
+    "arch": "arm64"
+  },
+  "bootstrap": {
+    "arm64_macos_installer": "./scripts/install_arm64_macos.sh",
+    "pre_push_check": "./scripts/check_before_push.sh",
+    "setup": [
+      "mix deps.get"
+    ],
+    "verify": [
+      "mix test"
+    ],
+    "repl": "iex -S mix"
+  },
+  "sandbox_notes": {
+    "mix_requires_elevated_permissions": true,
+    "reason": "Mix.PubSub opens a local TCP socket and fails in sandbox with :eperm"
+  },
+  "pipelines": {
+    "registry_module": "PipelineBin.Pipelines",
+    "names": [
+      "user_ingest",
+      "order_ingest"
+    ]
+  },
+  "adapters": {
+    "file_input_module": "PipelineBin.Adapters.FileInput",
+    "supported_file_types": [
+      ".json",
+      ".csv"
+    ]
+  },
+  "observability": {
+    "execution_log_module": "PipelineBin.ExecutionLog",
+    "default_log_path": "var/pipeline_execution.log",
+    "disable_log_persistence_context_key": "persist_logs?"
+  },
+  "key_files": [
+    "lib/pipeline_bin/pipeline.ex",
+    "lib/pipeline_bin/runner.ex",
+    "lib/pipeline_bin/pipelines.ex",
+    "lib/pipeline_bin/pipelines/step_helpers.ex",
+    "lib/pipeline_bin/pipelines/user_ingest.ex",
+    "lib/pipeline_bin/pipelines/order_ingest.ex",
+    "lib/pipeline_bin/adapters/file_input.ex",
+    "lib/pipeline_bin/csv.ex",
+    "lib/pipeline_bin/broadway/runner.ex",
+    "lib/pipeline_bin/broadway/runner/producer.ex",
+    "lib/pipeline_bin/workers/run_pipeline_worker.ex",
+    "lib/mix/tasks/pipeline.run.ex",
+    "lib/pipeline_bin/execution_log.ex",
+    ".github/workflows/ci-cd.yml",
+    ".vscode/settings.json",
+    ".vscode/extensions.json",
+    ".vscode/tasks.json",
+    ".tool-versions",
+    ".mise.toml",
+    ".codex/gpt-5.3/profile.json",
+    ".codex/gpt-5.3/session_prompt.md",
+    "scripts/install_arm64_macos.sh",
+    "scripts/check_before_push.sh",
+    "data/users.json",
+    "data/orders.csv",
+    "SECURITY.md",
+    "LICENSE",
+    "ETHICAL_USE.md",
+    "NOTICE",
+    ".github/pull_request_template.md",
+    "README.md",
+    ".codex/session_prompt.md"
+  ],
+  "last_verified": {
+    "date": "2026-03-08",
+    "result": "mix test passed (16 tests, 0 failures)"
+  }
+}

@@ -1,0 +1,6 @@
+/_build/
+/cover/
+/deps/
+/.elixir_ls/
+*.ez
+.DS_Store

@@ -1,0 +1,12 @@
+{
+  "profile": "gpt-5.3",
+  "purpose": "Project-focused coding sessions for pipeline_bin",
+  "model_hint": "gpt-5.3",
+  "defaults": {
+    "style": "concise",
+    "prefer_apply_patch": true,
+    "run_tests_after_changes": true,
+    "update_readme_for_user_visible_changes": true
+  },
+  "entry_prompt": ".codex/gpt-5.3/session_prompt.md"
+}
