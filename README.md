@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/basebin/bin/main/.github/assets/thumbnail.png" alt="bin" width="100%">
+</p>
+
 # pipeline_bin
 
 A lightweight Elixir project to keep and run reusable data pipelines.
