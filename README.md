@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/basebin/bin/main/.github/assets/thumbnail.png" alt="bin" width="100%">
+  <img src="https://raw.githubusercontent.com/Coccinella-Labs/bin/main/.github/assets/thumbnail.png" alt="bin" width="100%">
 </p>
 
 # pipeline_bin
